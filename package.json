@@ -4,6 +4,8 @@
   "description": "A small realestate website using a React front-end and Strapi back-end",
   "main": "index.js",
   "scripts": {
+    "startbe": "cd back-end && npm run develop",
+    "startfe": "cd front-end && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
