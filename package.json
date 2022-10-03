@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/DeclanElk/realestate-webapp/issues"
   },
-  "homepage": "https://github.com/DeclanElk/realestate-webapp#readme"
+  "homepage": "https://github.com/DeclanElk/realestate-webapp#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }
