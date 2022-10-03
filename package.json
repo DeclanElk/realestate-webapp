@@ -4,6 +4,7 @@
   "description": "A small realestate website using a React front-end and Strapi back-end",
   "main": "index.js",
   "scripts": {
+    "installall": "cd front-end && npm install && cd ../back-end && npm install",
     "startbe": "cd back-end && npm run develop",
     "startfe": "cd front-end && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,13 +13,10 @@
     "type": "git",
     "url": "git+https://github.com/DeclanElk/realestate-webapp.git"
   },
-  "author": "Declan.Elk",
+  "author": "DeclanElk",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/DeclanElk/realestate-webapp/issues"
   },
-  "homepage": "https://github.com/DeclanElk/realestate-webapp#readme",
-  "dependencies": {
-    "axios": "^0.27.2"
-  }
+  "homepage": "https://github.com/DeclanElk/realestate-webapp#readme"
 }
