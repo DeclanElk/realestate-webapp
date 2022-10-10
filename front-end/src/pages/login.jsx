@@ -5,15 +5,16 @@ export default function Login() {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
 
+    const loginUrl = `${process.env.REACT_APP_BACKEND_URL}/auth/local` 
+
     //Submit function
     function submit(event) {
-        console.log('test')
         axios
-        .post('http://localhost:1337/api/auth/local', {
+        .post(loginUrl, {
             identifier: email,
             password: password
         })
-        .then(response => {
+        .then(() => {
             console.log("Successfully logged in")
         })
         .catch(error => {
@@ -27,7 +28,7 @@ export default function Login() {
             <h1>Login</h1>
             <form onSubmit={submit}>
                 <div className='form-group row d-flex justify-content-center'>
-                    <div className="col-md-7 mb-3 mt-5">
+                    <div className="col-md-7 mt-5 mb-4">
                         <input 
                         type="email" 
                         className="form-control" 
@@ -38,13 +39,9 @@ export default function Login() {
                         onChange={(event) => {
                             setEmail(event.target.value)
                         }}/>
-                    </div>
-                </div>
-                <div className='form-group row d-flex justify-content-center'>
-                    <div className="col-md-7 mb-5">
-                    <input 
+                        <input 
                         type="password" 
-                        className="form-control" 
+                        className="form-control mt-4" 
                         id="password" 
                         placeholder="Enter password" 
                         name="password"
@@ -52,6 +49,7 @@ export default function Login() {
                         onChange={(event) => {
                             setPassword(event.target.value)
                         }}/>
+                        <p className="mt-4 text-start">Not yet a member? <a href='/register'>Register now</a></p>
                     </div>
                 </div>
                 <button 
