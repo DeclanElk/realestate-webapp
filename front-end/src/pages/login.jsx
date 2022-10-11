@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { UserContext } from '../context/userContext';
-import jwt_decode from 'jwt-decode'
 
 export default function Login() {
     const { setUser, setToken } = React.useContext(UserContext);

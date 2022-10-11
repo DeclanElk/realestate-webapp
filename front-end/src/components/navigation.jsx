@@ -3,7 +3,7 @@ import logo from '../assets/logo.png'
 import { UserContext } from '../context/userContext';
 
 export default function NavigationBar() {
-    const { user, token } = React.useContext(UserContext);
+    const { token } = React.useContext(UserContext);
 
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
