@@ -1,6 +1,8 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import React from 'react'
+import { UserContext } from './context/userContext';
+import jwt_decode from 'jwt-decode'
 
 //Page imports
 import Home from './pages/home';
@@ -13,12 +15,36 @@ import Property from './pages/property';
 //Component imports
 import NavigationBar from './components/navigation';
 
-//Creating user context
-export const UserContext = React.createContext();
-
 function App() {
+  //Establishing context from local storage
+  const [user, setUser] = React.useState(null);
+  const [token, setToken] = React.useState(null);
+
+  React.useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem('user'))
+    const storedToken = JSON.parse(localStorage.getItem('token'))
+
+    if (storedToken ) {
+      try {
+        const tokenExp = new Date(jwt_decode(storedToken).exp * 1000)
+        if (tokenExp > Date.now()) {
+          setUser(storedUser);
+          setToken(storedToken);
+        }
+      }
+      catch {
+        //Fail silently
+      }
+    }
+  }, [])
+
   return (
-    <UserContext.Provider>
+    <UserContext.Provider value={{
+      user,
+      token,
+      setUser,
+      setToken
+    }}>
       <BrowserRouter>
         <NavigationBar />
         <Routes>

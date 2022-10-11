@@ -1,7 +1,10 @@
 import React from 'react';
 import logo from '../assets/logo.png'
+import { UserContext } from '../context/userContext';
 
 export default function NavigationBar() {
+    const { user, token } = React.useContext(UserContext);
+
     return (
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
             <a href="/" className="nav-link text-light my-1">
@@ -20,15 +23,20 @@ export default function NavigationBar() {
                     </li>
                 </ul>
                 <ul className="navbar-nav me-3 align-items-center">
-                    <li className="nav-item mx-2">
-                        <a href="/login" className="nav-link text-light">Login</a>
-                    </li>
-                    <li className="nav-item mx-2">
-                        <a href="/register" className="nav-link text-light">Register</a>
-                    </li>
+                    { token ? 
                     <li className="nav-item mx-2">
                         <a href="/account" className="nav-link text-light">My Account</a>
                     </li>
+                    :
+                    <div className="d-flex">
+                        <li className="nav-item mx-2">
+                            <a href="/login" className="nav-link text-light">Login</a>
+                        </li>
+                        <li className="nav-item mx-2">
+                            <a href="/register" className="nav-link text-light">Register</a>
+                        </li>
+                    </div>
+                    }
                 </ul>
             </div>
         </nav>

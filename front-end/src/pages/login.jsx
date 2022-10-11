@@ -1,7 +1,10 @@
 import React from 'react';
 import axios from 'axios';
+import { UserContext } from '../context/userContext';
+import jwt_decode from 'jwt-decode'
 
 export default function Login() {
+    const { setUser, setToken } = React.useContext(UserContext);
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
 
@@ -14,8 +17,11 @@ export default function Login() {
             identifier: email,
             password: password
         })
-        .then(() => {
-            console.log("Successfully logged in")
+        .then((res) => {
+            setUser(res.data.user);
+            setToken(res.data.jwt);
+            localStorage.setItem('user', JSON.stringify(res.data.user));
+            localStorage.setItem('token', JSON.stringify(res.data.jwt));
         })
         .catch(error => {
             console.log("An error has occurred:", error.response)
