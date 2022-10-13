@@ -26,8 +26,8 @@ export default function Login() {
             localStorage.setItem('token', JSON.stringify(res.data.jwt));
             navigate('/')
         })
-        .catch(() => {
-            setError("Unable to log in, please check your credentials and try again.")
+        .catch((error) => {
+            setError(`Unable to login: ${error.response.data.error.message}`)
         })
         event.preventDefault();
     }
@@ -37,7 +37,7 @@ export default function Login() {
             <h1>Login</h1>
             <div className="row d-flex justify-content-center mt-5">
                 { error ? 
-                <div class="alert alert-danger col-md-7" role="alert">
+                <div className="alert alert-danger col-md-7" role="alert">
                     {error}
                 </div>
                 : null}
@@ -73,7 +73,7 @@ export default function Login() {
                 onClick={submit} 
                 className={email && password ? "btn btn-primary px-4 py-2" : "btn btn-primary px-4 py-2 disabled"} 
                 value="Submit">
-                    Submit
+                    Login
                 </button>
             </form>
         </div>
