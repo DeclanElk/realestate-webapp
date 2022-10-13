@@ -1,11 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import { UserContext } from '../context/userContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
     const { setUser, setToken } = React.useContext(UserContext);
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const navigate = useNavigate();
 
     const loginUrl = `${process.env.REACT_APP_BACKEND_URL}/auth/local` 
 
@@ -21,6 +23,7 @@ export default function Login() {
             setToken(res.data.jwt);
             localStorage.setItem('user', JSON.stringify(res.data.user));
             localStorage.setItem('token', JSON.stringify(res.data.jwt));
+            navigate('/')
         })
         .catch(error => {
             console.log("An error has occurred:", error.response)
