@@ -7,6 +7,7 @@ export default function Login() {
     const { setUser, setToken } = React.useContext(UserContext);
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
+    const [error, setError] = React.useState("");
     const navigate = useNavigate();
 
     const loginUrl = `${process.env.REACT_APP_BACKEND_URL}/auth/local` 
@@ -25,8 +26,8 @@ export default function Login() {
             localStorage.setItem('token', JSON.stringify(res.data.jwt));
             navigate('/')
         })
-        .catch(error => {
-            console.log("An error has occurred:", error.response)
+        .catch(() => {
+            setError("Unable to log in, please check your credentials and try again.")
         })
         event.preventDefault();
     }
@@ -34,9 +35,16 @@ export default function Login() {
     return (
         <div className='container text-center mt-5 p-5'>
             <h1>Login</h1>
+            <div className="row d-flex justify-content-center mt-5">
+                { error ? 
+                <div class="alert alert-danger col-md-7" role="alert">
+                    {error}
+                </div>
+                : null}
+            </div>
             <form onSubmit={submit}>
                 <div className='form-group row d-flex justify-content-center'>
-                    <div className="col-md-7 mt-5 mb-4">
+                    <div className="col-md-7 mt-4 mb-4">
                         <input 
                         type="email" 
                         className="form-control" 
@@ -63,7 +71,7 @@ export default function Login() {
                 <button 
                 type="submit" 
                 onClick={submit} 
-                className="btn btn-primary px-4 py-2" 
+                className={email && password ? "btn btn-primary px-4 py-2" : "btn btn-primary px-4 py-2 disabled"} 
                 value="Submit">
                     Submit
                 </button>
