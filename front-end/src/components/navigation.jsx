@@ -28,7 +28,7 @@ export default function NavigationBar() {
                     { token && user ? 
                     <li className="nav-item dropdown mx-4">
                         <button className='nav-link dropdown-toggle text-light btn btn-link' id='navbarDropdown' data-bs-toggle="dropdown" aria-expanded='false'>
-                            {user.username}
+                            {user.name}
                         </button>
                         <ul className='dropdown-menu dropdown-menu-end' aria-labelledby='navbarDropdown'>
                             <li>
