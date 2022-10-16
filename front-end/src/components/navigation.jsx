@@ -16,16 +16,9 @@ export default function NavigationBar() {
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarContent">
-                <ul className="navbar-nav me-auto align-items-center">
-                    <li className="nav-item mx-2">
-                        <a href="/" className="nav-link text-light">Home</a>
-                    </li>
-                    <li className="nav-item mx-2">
-                        <a href="/search" className="nav-link text-light">Search Properties</a>
-                    </li>
-                </ul>
+                <div className="navbar-nav me-auto align-items-center" />
+                { token && user ? 
                 <ul className="navbar-nav me-3 align-items-center">
-                    { token && user ? 
                     <li className="nav-item dropdown mx-4">
                         <button className='nav-link dropdown-toggle text-light btn btn-link' id='navbarDropdown' data-bs-toggle="dropdown" aria-expanded='false'>
                             {user.name}
@@ -53,17 +46,17 @@ export default function NavigationBar() {
                             </li>
                         </ul>
                     </li>
-                    :
-                    <div className="d-flex">
-                        <li className="nav-item mx-2">
-                            <a href="/login" className="nav-link text-light">Login</a>
-                        </li>
-                        <li className="nav-item mx-2">
-                            <a href="/register" className="nav-link text-light">Register</a>
-                        </li>
-                    </div>
-                    }
                 </ul>
+                :
+                <ul className="navbar-nav me-3 align-items-center">
+                    <li className="nav-item mx-2">
+                        <a href="/login" className="nav-link text-light">Login</a>
+                    </li>
+                    <li className="nav-item mx-2">
+                        <a href="/register" className="nav-link text-light">Register</a>
+                    </li>
+                </ul>
+                }
             </div>
         </nav>
     )

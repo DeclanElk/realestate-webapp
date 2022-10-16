@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { UserContext } from '../context/userContext';
-import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
     const { setUser, setToken } = React.useContext(UserContext);
@@ -10,7 +9,6 @@ export default function Register() {
     const [name, setName] = React.useState("");
     const [error, setError] = React.useState("");
     const [success, setSuccess] = React.useState(false);
-    const navigate = useNavigate();
 
     const registerUrl = `${process.env.REACT_APP_BACKEND_URL}/auth/local/register` 
 
