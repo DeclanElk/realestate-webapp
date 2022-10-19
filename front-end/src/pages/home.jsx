@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import Select from 'react-select';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faBath, faCar } from '@fortawesome/free-solid-svg-icons'
@@ -60,7 +60,7 @@ export default function Home() {
                 <form onSubmit={submit}>
                     <div className='container'>
                         <div className='form-group row d-flex justify-content-center'>
-                            <div className="col-lg-7 mt-4 mb-4 d-flex">
+                            <div className="col-lg-7 mt-4 mb-2 d-flex">
                                 <input 
                                 type="text" 
                                 className="form-control me-2" 
@@ -81,46 +81,52 @@ export default function Home() {
                             </div>
                         </div>
                         <div className='form-group row d-flex justify-content-center'>
-                            <div className="col-lg-7 mt-4 mb-4 d-flex align-items-center">
-                                <label htmlFor="bedSelect" className='me-2 bg-light p-1 rounded'>
-                                    <FontAwesomeIcon icon={faBed} className="text-dark" size="xl"/>
-                                </label>
-                                <Select 
-                                id="bedSelect"
-                                className="ms-2 me-4" 
-                                options={bedOptions}
-                                value={{value: selectedBeds, label: selectedBeds}}
-                                onChange={(event) => {
-                                    setSelectedBeds(event.value)
-                                    console.log(selectedBeds)
-                                }}
-                                />
-                                <label htmlFor="bathSelect" className='mx-2 bg-light p-1 rounded'>
-                                    <FontAwesomeIcon icon={faBath} className="text-dark" size="xl"/>
-                                </label>
-                                <Select 
-                                id="bathSelect"
-                                className="ms-2 me-4" 
-                                options={bathOptions}
-                                value={{value: selectedBaths, label: selectedBaths}}
-                                onChange={(event) => {
-                                    setSelectedBaths(event.value)
-                                    console.log(selectedBaths)
-                                }}
-                                />
-                                <label htmlFor="garageSelect" className='mx-2 bg-light p-1 rounded'>
-                                    <FontAwesomeIcon icon={faCar} className="text-dark" size="xl"/>
-                                </label>
-                                <Select 
-                                id="garageSelect"
-                                className="" 
-                                options={garageOptions}
-                                value={{value: selectedGarages, label: selectedGarages}}
-                                onChange={(event) => {
-                                    setSelectedGarages(event.value)
-                                    console.log(selectedGarages)
-                                }}
-                                />
+                            <div className="col-lg-7 mb-5 d-flex row">
+                                <div className='col-sm-4 d-flex align-items-center mt-4 justify-content-center'>
+                                    <label htmlFor="bedSelect" className='me-2 bg-light p-1 rounded'>
+                                        <FontAwesomeIcon icon={faBed} className="text-dark" size="xl"/>
+                                    </label>
+                                    <Select 
+                                    id="bedSelect"
+                                    className="ms-2 me-4 flex-fill" 
+                                    options={bedOptions}
+                                    value={{value: selectedBeds, label: selectedBeds}}
+                                    onChange={(event) => {
+                                        setSelectedBeds(event.value)
+                                        console.log(selectedBeds)
+                                    }}
+                                    />
+                                </div>
+                                <div className='col-sm-4 d-flex align-items-center mt-4 justify-content-center'>
+                                    <label htmlFor="bathSelect" className='mx-2 bg-light p-1 rounded'>
+                                        <FontAwesomeIcon icon={faBath} className="text-dark" size="xl"/>
+                                    </label>
+                                    <Select 
+                                    id="bathSelect"
+                                    className="ms-2 me-4 flex-fill" 
+                                    options={bathOptions}
+                                    value={{value: selectedBaths, label: selectedBaths}}
+                                    onChange={(event) => {
+                                        setSelectedBaths(event.value)
+                                        console.log(selectedBaths)
+                                    }}
+                                    />
+                                </div>
+                                <div className='col-sm-4 d-flex align-items-center mt-4 justify-content-center'>
+                                    <label htmlFor="garageSelect" className='mx-2 bg-light p-1 rounded'>
+                                        <FontAwesomeIcon icon={faCar} className="text-dark" size="xl"/>
+                                    </label>
+                                    <Select 
+                                    id="garageSelect"
+                                    className="ms-2 me-4 flex-fill" 
+                                    options={garageOptions}
+                                    value={{value: selectedGarages, label: selectedGarages}}
+                                    onChange={(event) => {
+                                        setSelectedGarages(event.value)
+                                        console.log(selectedGarages)
+                                    }}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
