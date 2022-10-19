@@ -83,7 +83,7 @@ export default function Home() {
                         <div className='form-group row d-flex justify-content-center'>
                             <div className="col-lg-7 mb-5 d-flex row">
                                 <div className='col-sm-4 d-flex align-items-center mt-4 justify-content-center'>
-                                    <label htmlFor="bedSelect" className='me-2 bg-light p-1 rounded'>
+                                    <label htmlFor="bedSelect" className='mx-2 bg-light p-1 rounded'>
                                         <FontAwesomeIcon icon={faBed} className="text-dark" size="xl"/>
                                     </label>
                                     <Select 
