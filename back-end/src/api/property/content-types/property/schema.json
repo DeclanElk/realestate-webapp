@@ -4,7 +4,8 @@
   "info": {
     "singularName": "property",
     "pluralName": "properties",
-    "displayName": "property"
+    "displayName": "property",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,13 +16,19 @@
       "type": "string"
     },
     "bedrooms": {
-      "type": "integer"
+      "type": "integer",
+      "max": 100,
+      "min": 0
     },
     "bathrooms": {
-      "type": "integer"
+      "type": "integer",
+      "max": 100,
+      "min": 0
     },
     "garages": {
-      "type": "integer"
+      "type": "integer",
+      "max": 100,
+      "min": 0
     },
     "size": {
       "type": "integer"
@@ -39,24 +46,26 @@
       "type": "text"
     },
     "photos": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "floorplan": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
