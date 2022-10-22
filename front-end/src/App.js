@@ -53,7 +53,7 @@ function App() {
           <Route path="/register" element={<Register />}/>
           <Route path="/account" element={<Account />}/>
           <Route path="/search" element={<Search />}/>
-          <Route path="/property" element={<Property />}/>
+          <Route path="/property/:propertyId" element={<Property />} />
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
