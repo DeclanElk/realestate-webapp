@@ -36,10 +36,10 @@
     "type": {
       "type": "enumeration",
       "enum": [
-        "house",
-        "townhouse",
-        "apartment",
-        "land"
+        "House",
+        "Townhouse",
+        "Apartment",
+        "Land"
       ]
     },
     "description": {
